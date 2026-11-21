@@ -2,6 +2,10 @@
 # SENTINEL-X
 **Financial Fraud Detection, Reasoning & Intelligence Platform** — *Detect the Pattern. Explain the Risk.*
 
+[![tests](https://github.com/peloyl/SENTINEL-X/actions/workflows/tests.yml/badge.svg)](https://github.com/peloyl/SENTINEL-X/actions/workflows/tests.yml)
+![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
+![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
 ## Problem
 Fraud is rare (~0.2-0.4%), costly, and black-box model scores alone do not help an analyst decide. SENTINEL-X combines ML, rules, risk aggregation and deterministic reasoning so every flag comes with an explanation and an audit trail.
 
@@ -49,7 +53,22 @@ pytest -q
 See `docs/model_evaluation.md`. Metrics in the report are produced by the actual training run on your machine/dataset.
 
 ## Screenshots
-Run the dashboard and capture Overview / Investigation / Audit pages (placeholder - screenshots must come from your own run).
+Actual screenshots of the running dashboard (synthetic demo data, labeled in-app):
+
+**Overview**
+![Overview](docs/images/overview.png)
+
+**Transaction Investigation (SHAP contributions)**
+![Investigation](docs/images/transaction_investigation.png)
+
+**Analyst Workflow**
+![Analyst Workflow](docs/images/analyst_workflow.png)
+
+**Reports & Analytics**
+![Reports](docs/images/reports_and_analytics.png)
+
+**Audit Logs**
+![Audit Logs](docs/images/audit_logs.png)
 
 ## Limitations
 See `docs/limitations.md` - including: no real IP/device/geo/90-day history in the source dataset, synthetic demo labeling, non-validated risk weights, application-level (not tamper-proof) audit.
