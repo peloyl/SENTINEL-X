@@ -1,0 +1,44 @@
+version: "rules-v1"
+rules:
+  - id: R001
+    feature: Amount
+    condition: ">"
+    threshold: 1000
+    severity: 0.7
+    enabled: true
+    template: "Transaction amount ({value}) is unusually high relative to the reference distribution."
+  - id: R002
+    feature: Amount
+    condition: ">"
+    threshold: 5000
+    severity: 1.0
+    enabled: true
+    template: "Transaction amount ({value}) is extremely high."
+  - id: R003
+    feature: V14
+    condition: "<"
+    threshold: -3.0
+    severity: 0.6
+    enabled: true
+    template: "Anonymized feature V14 ({value}) is in an extreme range associated with fraud in training data."
+  - id: R004
+    feature: V17
+    condition: "<"
+    threshold: -3.0
+    severity: 0.6
+    enabled: true
+    template: "Anonymized feature V17 ({value}) is in an extreme range."
+  - id: R005
+    feature: V10
+    condition: "<"
+    threshold: -3.0
+    severity: 0.5
+    enabled: true
+    template: "Anonymized feature V10 ({value}) is in an extreme range."
+  - id: R006
+    feature: hour
+    condition: "between"
+    threshold: [0, 4]
+    severity: 0.3
+    enabled: true
+    template: "Transaction occurred in a low-activity night window (hour={value}). This is weak evidence alone."

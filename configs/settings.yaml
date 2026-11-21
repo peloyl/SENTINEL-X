@@ -1,0 +1,29 @@
+project:
+  name: SENTINEL-X
+  version: "1.0.0"
+  model_version: "xgb-v1"
+  rules_version: "rules-v1"
+data:
+  raw_path: "data/raw/creditcard.csv"
+  demo_path: "data/samples/demo_transactions.csv"
+  target: "Class"
+  test_size: 0.2
+  valid_size: 0.2
+  random_state: 42
+model:
+  threshold: 0.5
+  xgboost:
+    n_estimators: 300
+    max_depth: 5
+    learning_rate: 0.08
+    subsample: 0.9
+    colsample_bytree: 0.9
+    eval_metric: "aucpr"
+risk:
+  weights: {model: 0.6, rule: 0.2, velocity: 0.2}  # initial, NOT statistically validated
+  thresholds: {medium: 0.35, high: 0.65}
+velocity:
+  window_minutes: 10
+  high_count: 5
+database:
+  path: "data/sentinelx.db"
